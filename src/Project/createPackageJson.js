@@ -12,8 +12,12 @@ export const createPackageJson = (options) => {
     "license": "GPL-3.0 License",
     "scripts": {
         "dev": "nodemon src/server${isJs() ? ".js" : ".ts"}",
-       ${isJs() ? "" : `"build": "tsc",`} 
-        "start": "node src/server.js",
+       ${
+         isJs()
+           ? ""
+           : ` "build": "tsc",
+       `
+       } "start": "node src/server.js",
         "test": "jest --runInBand",
         ${
           options.eslint
